@@ -1,7 +1,7 @@
 const sqlite3 = require('sqlite3').verbose();
 
 // open database 
-let db = new sqlite3.Database('./tempDB.db', (err) => {
+let db = new sqlite3.Database('./tempDB.db', sqlite3.OPEN_READWRITE, (err) => {
   if (err) {
     console.error(err.message);
   }
@@ -24,6 +24,10 @@ db.run
       console.error(err.message);
     }
   })
+// var giorno = 'giorno';
+// var temperatura = 'temperatura';
+//   db.run(`INSERT INTO temp (giorno, temperatura)
+//     VALUES (${giorno}, ${temperatura})`)
 
 // close the database connection
 db.close((err) => {
