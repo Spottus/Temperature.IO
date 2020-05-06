@@ -8,10 +8,12 @@ let db = new sqlite3.Database('./tempDB.db', sqlite3.OPEN_READWRITE, (err) => {
   console.log('Connected to the tempDb database.');
   }
 });
+var hour = '11';
+var day = '6';
+var month = '5';
 
-
-var queryHourAvarage = `SELECT avg(celsius) FROM log where log.hours = '11'; );`
-var queryDailyAverage = `SELECT avg(celsius) FROM log where log.day = '6' and log.month  = '5'; );`
+var queryHourAvarage = `SELECT avg(celsius) FROM log where log.hours = '${hour}'; );`
+var queryDailyAverage = `SELECT avg(celsius) FROM log where log.day = '${day}' and log.month  = '${month}'; );`
 
 
 db.all
