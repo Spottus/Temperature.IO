@@ -13,8 +13,7 @@ let database = new sqlite3.Database('./src/database/temperatureDB.db', sqlite3.O
 
 database.get(`SELECT avg(celsius) FROM log where log.hours = '${hour}'; );`,[],(err,row) => {
     if(err) console.error(err.message);
-    avgHour=row;
-    
+    avgHour=row; // valore non visibile al esterno 
 });
 console.log(avgHour)
 database.close;
