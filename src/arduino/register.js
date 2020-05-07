@@ -50,6 +50,6 @@ board.on("ready", () => {
 });
 
 
-module.exports  = board;
+module.exports  = {board};
 
 
