@@ -3,9 +3,10 @@ const {database} = require('./temperature.service');
 
 temperature = express.Router();
 
-temperature.get('/hour-Avg/:hours', ( req, res ) => {
+temperature.get('/hour-Avg/:day/:month/:year/:hours', ( req, res ) => {
 
-    var query = `SELECT avg(celsius) FROM log where log.hours = '${req.params.hours}'; );`
+    var query = `SELECT avg(celsius) FROM log where log.day = '${req.params.day}' and log.month = '${req.params.month}' 
+                    and log.year = '${req.params.year}' and log.hours = '${req.params.hours}'; );`
 
     database.get(query, (err,row) =>{
         if(err) {
