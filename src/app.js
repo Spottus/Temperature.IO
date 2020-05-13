@@ -6,7 +6,7 @@ const cron = require('node-cron');
 
 dotenv.config();
 const app = express();
-const port = 8080;
+const port = process.env.PORT
 
 cron.schedule("40 * * * * *", () => {
 console.log("Running Job");
