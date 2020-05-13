@@ -1,5 +1,6 @@
 const { Board, Thermometer } = require("johnny-five");
 const fs  = require('fs');
+const path = require('path');
 
 
 const board = new Board()
@@ -19,18 +20,20 @@ board.on("ready", () => {
     let day = date.getDate();
     let month = date.getMonth() + 1;
     let hours = date.getUTCHours() +2;
+    let year = date.getFullYear()
     const {celsius} = thermometer;
-    let record = day + ',' + month + ',' + hours + ',' + celsius;
+    let record = day + ',' + month + ',' + year + ',' + hours + ',' + celsius;
 
     console.log("Thermometer");
     console.log("  day            : ", day);
     console.log("  month          : ", month);
+    console.log("  year           : ", year)
     console.log("  hours          : ", hours);
     console.log("  celsius        : ", celsius);
     console.log("--------------------------------------");
     
     var fs = require('fs');
-    var logStream = fs.createWriteStream('../database/log.csv', {flags: 'a'});
+    var logStream = fs.createWriteStream(path.resolve('./src/database/log.csv'), {flags: 'a'});
     logStream.write(record);
     logStream.end('\n');
     sleep(1000);
