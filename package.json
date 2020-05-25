@@ -6,7 +6,8 @@
   "description": "",
   "scripts": {
     "start": "node src/app.js",
-    "start:dev": "nodemon --watch src -e js"
+    "start:dev": "nodemon --watch src -e js",
+    "prettier": "prettier --print-width 80 --no-semi --single-quote --trailing-comma es5 --write \"{,!(node_modules)/**/}*.{js,jsx}\""
   },
   "dependencies": {
     "dotenv": "^8.2.0",
@@ -14,12 +15,12 @@
     "fopen": "^1.0.0",
     "fs": "0.0.1-security",
     "johnny-five": "^1.4.0",
-    "node-cron": "^2.0.3",
     "package.json": "^2.0.1",
     "serialport": "^8.0.7",
     "sqlite3": "^4.2.0"
   },
   "devDependencies": {
-    "nodemon": "^2.0.3"
+    "nodemon": "^2.0.3",
+    "prettier": "^2.0.5"
   }
 }
